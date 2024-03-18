@@ -23,10 +23,10 @@ BASE_API_URL = "http://localhost:7860/api/v1/process"
 FLOW_ID = "fa78d8a1-3da5-4c2d-bf49-fcb84a864931"
 
 TWEAKS = {
-    "ChatOpenAI-D2X2h": {},
     "PromptTemplate-whWRD": {},
-    "PyPDFLoader-uYaI5": {"file_path": "<filepath>"},
-    "LLMChain-HMbhy": {}
+    "PyPDFLoader-uYaI5": {"file_path": "<filepath>"}, ## adding the param that we want to manipulate 
+    "LLMChain-HMbhy": {},
+    "BaseLLM-JIibp": {}
 }
 
 BASE_AVATAR_URL = "https://raw.githubusercontent.com/garystafford-aws/static-assets/main/static"
