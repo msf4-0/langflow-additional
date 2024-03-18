@@ -1,9 +1,3 @@
-# Conversational Retrieval QA Chatbot, built using Langflow and Streamlit
-# Author: Gary A. Stafford
-# Date: 2023-07-28
-# Usage: streamlit run streamlit_app.py
-# Requirements: pip install streamlit streamlit_chat -Uq
-
 import logging
 import sys
 import time
@@ -15,17 +9,15 @@ from streamlit_chat import message
 log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 logging.basicConfig(format=log_format, stream=sys.stdout, level=logging.INFO)
 
-# BASE_API_URL = "http://192.168.0.103:7860/api/v1/process"
 BASE_API_URL = "http://localhost:7860/api/v1/process"
-FLOW_ID = "47fac547-6dd9-4764-94e6-42f93c32c366"
+FLOW_ID = "30ebbfe8-1b84-4fcf-8292-a406daeffa75"
 # You can tweak the flow by adding a tweaks dictionary
 # e.g {"OpenAI-XXXXX": {"model_name": "gpt-4"}}
 TWEAKS = {
-  "OpenAIEmbeddings-B3Kj3": {},
-  "ChatOpenAI-2H8uE": {},
-  "ConversationBufferMemory-NylKj": {},
-  "Chroma-eFGOr": {},
-  "ConversationalRetrievalChain-qtB0v": {}
+  "BaseLLM-0leMO": {},
+  "LLMChain-TCKQ1": {},
+  "ConversationBufferMemory-Evg2Q": {},
+  "PromptTemplate-WCy9z": {}
 }
 
 BASE_AVATAR_URL = (
@@ -92,13 +84,14 @@ def run_flow(inputs: dict, flow_id: str, tweaks: Optional[dict] = None) -> dict:
     return response.json()
 
 
+
 def generate_response(prompt):
-    logging.info(f"question: {prompt}")
-    inputs = {"question": prompt}
+    logging.info(f"query: {prompt}")
+    inputs = {"query": prompt}
     response = run_flow(inputs, flow_id=FLOW_ID, tweaks=TWEAKS)
     try:
-        logging.info(f"answer: {response['result']['answer']}")
-        return response["result"]["answer"]
+        logging.info(f"answer: {response['result']['text']}")
+        return response["result"]["text"]
     except Exception as exc:
         logging.error(f"error: {response}")
         return "Sorry, there was a problem finding an answer for you."

@@ -1,6 +1,15 @@
 # langflow
 
 ### 📦 <b>Installing packaged langflow (version control)</b>
+
+```shell
+git clone https://github.com/oyasizaki/langflow-additional.git
+```
+```shell
+cd Version_Control
+```
+
+
 ```shell
 pip install -r requirements_<version>.txt
 ```
@@ -14,15 +23,15 @@ pip install langflow
 ```
 
 Next, run:
+```shell
+langflow run # or langflow --help
+```
+
+or
 
 ```shell
 python -m langflow
 ```
-or
-```shell
-langflow # or langflow --help
-```
-
 ### <b>Version</b>
 To install a specific version of langflow 
 ```shell
@@ -65,7 +74,10 @@ pip install -U sentence-transformers
 IF YOU Face any dependency version related problem then set the version while installing langflow using pip:
 * first clone the github repo of langflow with git clone command
 * then use cd langflow to go to the lanflow folder inside the terminal. Finally, use this command:
-
+```shell
+pip3 install "dependency_name >=Supported_version_begining_number,<Supported_version_ending_number" langflow
+```
+For example :
 ```shell
 pip3 install "opentelemetry-sdk >=1.14.0,<1.20.0" langflow
 ```
