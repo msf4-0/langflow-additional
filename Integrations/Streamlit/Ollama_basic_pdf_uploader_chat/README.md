@@ -7,6 +7,27 @@
 •	Langflow
 <br>
 
+# Dependencies Installation
+
+```shell
+pip install python-dotenv
+```
+
+
+```shell
+pip install htbuilder
+```
+
+
+```shell
+pip install streamlit_extras
+```
+
+
+```shell
+pip install streamlit streamlit_chat -Uq
+```
+
 ### Test file
 I have added some test pdf file in this repo for test purposes. feel free to use them.
 
